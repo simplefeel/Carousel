@@ -1,0 +1,18 @@
+{
+    "compact": false,
+    "presets": [
+        "es2015-ie",
+        "stage-1",
+        "react"
+    ],
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "antd"
+            }
+        ],
+        "transform-object-rest-spread",
+        "transform-decorators-legacy"
+    ]
+}

@@ -1,0 +1,127 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    border-radius: 3px;
+    background: #1e3e64;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 3px;
+    background: #2378c3;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #2378c3;
+}
+
+html {
+    SCROLLBAR-WIDTH: 3px;
+    SCROLLBAR-HEIGHT: 3px;
+    SCROLLBAR-FACE-COLOR: #1e3e64;
+    SCROLLBAR-SHADOW-COLOR: #1e3e64;
+    SCROLLBAR-HIGHLIGHT-COLOR: #1e3e64;
+    SCROLLBAR-3DLIGHT-COLOR: #1e3e64;
+    SCROLLBAR-DARKSHADOW-COLOR: #1e3e64;
+    SCROLLBAR-TRACK-COLOR: #2378c3;
+    SCROLLBAR-ARROW-COLOR: #1e3e64;
+}
+body {
+    /* color: #fff;
+    box-sizing: border-box;
+    min-width: 1200px;
+    overflow-x: auto;
+    padding: 55px 0 0 0;
+    color: #fff;
+    background: #1E4F86;
+    background: radial-gradient(50% 50%, #2065ac, #1c385e);
+    background: -webkit-radial-gradient(50% 50%, #2065ac, #1c385e);
+    background: -ms-radial-gradient(50% 50%, #2065ac, #1c385e); */
+    background: #EFEDED
+}
+
+a {
+    color: #2db7f5;
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: color .1s linear 0s, background-color .1s linear 0s!important;
+}
+
+a:active, a:hover, a:visited {
+    outline: 0;
+    text-decoration: none;
+}
+
+a:active {
+    color: #2baee9;
+}
+
+a:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: 2px;
+    text-decoration: none;
+}
+#nav {
+    min-height: 570px;
+}
+
+#nav ul>li:nth-last-child(2) {
+    position: absolute;
+    width: 100%;
+    bottom: 105px;
+}
+
+#nav ul>li:nth-last-child(1) {
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+}
+/*@media (max-width:1200px){
+    body #container{
+        margin-left: 45px;
+    }
+    .bp-wrap .bp-nav{
+        width: 45px;
+    }
+
+}*/
+#container {
+    height: 100%;
+    /* margin-left: 160px; */
+    margin:0 20px;
+    position: relative;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ks-clear, .clear {
+  *zoom: 1;
+}
+
+@font-face {font-family: "anticon";
+  src: url('./iconfont_antd/iconfont.eot?t=1489560638291'); /* IE9*/
+  src: url('./iconfont_antd/iconfont.eot?t=1489560638291#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./iconfont_antd/iconfont.woff?t=1489560638291') format('woff'), /* chrome, firefox */
+  url('./iconfont_antd/iconfont.ttf?t=1489560638291') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./iconfont_antd/iconfont.svg?t=1489560638291#iconfont') format('svg'); /* iOS 4.1- */
+}

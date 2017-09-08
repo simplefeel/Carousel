@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>uyun.earth</groupId>
+	<artifactId>kara-frontend</artifactId>
+	<packaging>pom</packaging>
+	<version>2.0.0-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+	<url>http://maven.apache.org</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>build-bin</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly.xml</descriptor>
+							</descriptors>
+							<outputDirectory>target</outputDirectory>
+							<finalName>omp-frontend</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>uyun-release</id>
+			<name>public release</name>
+			<url>http://www.uyunsoft.cn/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>uyun-snapshot</id>
+			<name>nexus snapshots</name>
+			<url>http://www.uyunsoft.cn/nexus/content/repositories/snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
