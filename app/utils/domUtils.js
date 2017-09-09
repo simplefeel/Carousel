@@ -61,6 +61,10 @@ function head(array){
     if(array == null) return void 0;
     return [].slice.call(array,0,1)
 }
+/**
+ * 返回数组的最后一个元素
+ * @param {*数组} array 
+ */
 
 function last(array){
     if(array == null) return void 0;
