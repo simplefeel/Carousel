@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import {getPosition,get} from '../utils/domUtils'
+import {getPosition,get,size,omit,head,last,isEmpty} from '../utils/domUtils'
 import tweenFunctions from 'tween-functions';
 import PropTypes from 'prop-types';
 import requestAnimationFrame from 'raf';
@@ -128,7 +128,7 @@ class Carousel extends Component {
     handleSwipe = () => {
         const {children, speed} = this.props;
         const {width, currentIndex, direction, translateX} = this.state;
-        const count = _.size(children);
+        const count = size(children);
 
         let newIndex;
         let endValue;
@@ -155,7 +155,7 @@ class Carousel extends Component {
         }
 
         this.setState({
-            translateX: _.head(tweenQueue)
+            translateX: head(tweenQueue)
         });
         tweenQueue.shift();
         this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
@@ -212,8 +212,8 @@ class Carousel extends Component {
         const {children} = this.props;
         const {translateX, width} = this.state;
         const count = _.size(children) + 2;
-        const firstElement = _.head(children);
-        const lastElement = _.last(children);
+        const firstElement = head(children);
+        const lastElement = last(children);
         return (
             <Frame width={width}>
                 <SliderList width={width} count={count} translateX={translateX}>
@@ -242,8 +242,10 @@ class Carousel extends Component {
         )
     }
     render() {
+        const rest = omit(this.props, ['children', 'speed']);
         return (
             <Container
+                {...rest}
                 innerRef={(node) => {
                 this.container = node;
             }}>

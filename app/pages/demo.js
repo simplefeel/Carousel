@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Carousel from './test';
+import Carousel from './carousel';
 
 const RED = '#FF4E4E';
 const BLUE = '#286FDC';
@@ -38,7 +38,7 @@ class Demo extends Component {
             <div className="component-content">
                 <div className="component-section">
                     <div className="component-title">Normal</div>
-                    <Carousel className="component-item" speed={500}>
+                    <Carousel className="component-item" speed={500} pro={100}>
                         {this.renderItems()}
                     </Carousel>
                 </div>
