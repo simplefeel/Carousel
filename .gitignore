@@ -14,5 +14,4 @@ status.log
 /public
 .vscode
 stats.json
-webpack.dev.config.js
 package.json
