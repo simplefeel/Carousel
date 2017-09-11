@@ -71,8 +71,16 @@ function last(array){
     return [].slice.call(array,-1)
 }
 
-function isEmpty(){
+/**
+ * 判断是否是{},[],"",null或者undefined
+ */
 
+function isEmpty(obj){
+    if(obj == null) return true;
+    if(typeof obj === 'object'){
+        return Object.keys(obj).length === 0
+    }
+    return obj.length === 0
 }
 
 export {

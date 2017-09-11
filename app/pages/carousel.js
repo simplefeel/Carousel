@@ -149,7 +149,7 @@ class Carousel extends Component {
     }
 
     animation = (tweenQueue, newIndex) => {
-        if (_.isEmpty(tweenQueue)) {
+        if (isEmpty(tweenQueue)) {
             this.handleOperationEnd(newIndex);
             return;
         }
