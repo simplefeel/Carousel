@@ -4,7 +4,6 @@
 
 ![](./carousel.gif)
 
-**carousel.js**:
 - 使用react进行编写,
 - 使用了style-components进行样式组件编写,
 - 依赖了tween-functions处理动画
