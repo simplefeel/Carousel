@@ -1,4 +1,5 @@
 # Carousel
+<<<<<<< HEAD
 一个兼容移动端、PC端的React轮播组件
 
 ![](./carousel.gif)
@@ -22,3 +23,11 @@ children就是您需要轮播的图片素材
 ```js
 <Carousel speed={300} pagination={true}>{children}<Carousel/>
 ```
+=======
+> 一个兼容移动端、PC端的React轮播组件
+
+
+![](./carousel.gif)
+
+
+>>>>>>> da7290c09b30c2e9e348d7ac57f725fa5c17c57b
