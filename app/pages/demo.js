@@ -37,8 +37,8 @@ class Demo extends Component {
         return (
             <div className="component-content">
                 <div className="component-section">
-                    <div className="component-title">Normal</div>
-                    <Carousel className="component-item" speed={500} pro={100}>
+                    <div className="component-title" style={{'text-align':'center','margin-bottom':'20px','color':'#D05F4A'}}>轮播组件（PC端、移动端皆适用）</div>
+                    <Carousel className="component-item" speed={500} pro={100} pagination={true}>
                         {this.renderItems()}
                     </Carousel>
                 </div>

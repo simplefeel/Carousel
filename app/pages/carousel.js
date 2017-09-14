@@ -17,6 +17,7 @@ const Container = styled.div `
     width: 100%;
     height: auto;
     box-sizing: border-box;
+    color: #fff
 `;
 
 const Frame = styled.div `
@@ -42,6 +43,24 @@ const SliderItem = styled.div `
     display: block;
     height: auto;
     width: ${props => props.width}px;
+`;
+const Prev = styled.div`
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #fff;
+`;
+const Next = styled.div`
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #fff;
 `;
 
 const propTypes = {
@@ -69,10 +88,17 @@ class Carousel extends Component {
 
     componentDidMount() {
         this.getContainerWidth();
+        this.forbiddenBodyTouch();
     }
 
     componentWillUnmount() {
         requestAnimationFrame.cancel(this.rafId);
+    }
+
+    forbiddenBodyTouch = ()=>{
+        document.addEventListener('touchmove',(e)=>{
+            e.preventDefault();
+        })
     }
 
     getContainerWidth = () => {
@@ -90,6 +116,40 @@ class Carousel extends Component {
             tweenQueue.push(tweenFunctions.easeInOutQuad(UPDATE_INTERVAL * i, beginValue, endValue, speed),);
         }
         return tweenQueue;
+    }
+
+    handleNext = (e) => {
+        const {children, speed} = this.props;
+        const {width, currentIndex, translateX} = this.state;
+        const count = size(children);
+
+        let newIndex;
+        let endValue;
+       
+        newIndex = currentIndex !== count
+            ? currentIndex + 1
+            : START_INDEX;
+        endValue = -(width) * (currentIndex + 1);
+
+        const tweenQueue = this.getTweenQueue(translateX, endValue, speed);
+        this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
+    }
+
+    handlePrev = (e) => {
+        const {children, speed} = this.props;
+        const {width, currentIndex, translateX} = this.state;
+        const count = size(children);
+
+        let newIndex;
+        let endValue;
+       
+        newIndex = currentIndex !== START_INDEX
+            ? currentIndex - 1
+            : count;
+        endValue = -(width) * (currentIndex - 1);
+
+        const tweenQueue = this.getTweenQueue(translateX, endValue, speed);
+        this.rafId = requestAnimationFrame(() => this.animation(tweenQueue, newIndex));
     }
 
     handleTouchStart = (e) => {
@@ -241,6 +301,15 @@ class Carousel extends Component {
             </Frame>
         )
     }
+    renderPagination = ()=>{
+        const {pagination} = this.props;
+        return (
+            <div>
+                <Next onClick={this.handleNext}>&gt;</Next>
+                <Prev onClick={this.handlePrev}>&lt;</Prev>
+            </div>
+        )
+    }
     render() {
         const rest = omit(this.props, ['children', 'speed']);
         return (
@@ -250,6 +319,7 @@ class Carousel extends Component {
                 this.container = node;
             }}>
                 {this.renderSlideList()}
+                {this.renderPagination()}
             </Container>
         )
     }
