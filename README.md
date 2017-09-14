@@ -9,7 +9,7 @@
 ```sh
 npm install styled-components tween-functions requestAnimationFrame raf --save-dev
 ```
-2.直接下载[carousel.js](./pages/carousel.js)于自己的项目中,通过组件方式引用，示例代码如下：
+2.直接下载 [carousel.js](./pages/carousel.js) 于自己的项目中,通过组件方式引用，示例代码如下：
 ```js
 <Carousel>{children}<Carousel/>
 ```
